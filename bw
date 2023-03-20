@@ -1,0 +1,18 @@
+#First, import the necessary libraries for Wi-Fi and Bluetooth:
+
+ 
+import network
+import bluetooth
+#Then, initialize the Wi-Fi connection:
+ 
+station = network.WLAN(network.STA_IF)
+station.active(True)
+station.connect('<Your Wi-Fi SSID>', '<Your Wi-Fi password>')
+#Initialize the Bluetooth connection:
+ 
+bluetooth.start_scan(10)
+
+while True:
+    adv = bluetooth.get_adv()
+    if adv:
+        print(adv)
